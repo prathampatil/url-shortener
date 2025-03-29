@@ -12,7 +12,7 @@ import json
 import time
 from datetime import datetime
 from pathlib import Path
-
+import numpy as np
 
 class URLShortener:
     def __init__(self, storage_path="url_data.json"):
@@ -47,7 +47,7 @@ class URLShortener:
             code = custom_code
         else:
             # Generate a short code based on the URL and current time
-            hash_input = f"{original_url}_{time.time()}"
+            i_hash_input = f"{original_url}_{time.time()}"
             code = hashlib.md5(hash_input.encode()).hexdigest()[:6]
         
         # Store the mapping
